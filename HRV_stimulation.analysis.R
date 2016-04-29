@@ -94,7 +94,8 @@ dev.off()
 
 
 length(intersect(which(in_vivo[common_genes,]$log2FoldChange >= 2), which(in_vitro[common_genes,]$log2FoldChange<1)))  ### 178
-in_vivo_genes = rownames(in_vitro)[intersect(which(in_vivo[common_genes,]$log2FoldChange >= 2), which(in_vitro[common_genes,]$log2FoldChange<1))]
+df = in_vivo[common_genes,]
+in_vivo_genes = rownames(df)[intersect(which(in_vivo[common_genes,]$log2FoldChange >= 2), which(in_vitro[common_genes,]$log2FoldChange<1))]
 write.table(in_vivo_genes, file="in_vivo_genes.042916.txt", quote=F,col.names=F, row.names=F)
 
 save.image("HRV_stim.042916.Rdata")
